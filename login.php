@@ -10,7 +10,7 @@ if (!empty($_POST)) {
         setcookie('password', $password, 0, '/');
         header('Location: /index.php');
     } else {
-        $error = 'Ошибка авторизации';
+        $error = 'Ошибка';
     }
 }
 ?>
@@ -26,9 +26,6 @@ if (!empty($_POST)) {
 </head>
 <body>
 <?php if (isset($error)): ?>
-<span style="color: red;">
-    <?= $error ?>
-</span>
 <?php endif; ?>
 <form class="form" action="/login.php" method="post">
     <div class="columns">
@@ -53,6 +50,9 @@ if (!empty($_POST)) {
                                 </span>
                         </p>
                     </div>
+                    <span style="color: red;">
+                        <?= $error ?>
+                    </span>
                     <br>
                     <div class="columns">
                         <div class="column"></div>
