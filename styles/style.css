@@ -1,14 +1,49 @@
+:root {
+    --bg-color: rgb(75, 72, 218);
+    --primary-color: rgb(255, 129, 56);
+}
+
+body{
+    background-color: var(--bg-color);
+}
+
+.loading {
+    position: absolute;
+    z-index: 29;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    font-size: 48px;
+    display: none;
+  }
+
+.js-loading .loading {
+    display: block;
+}
+
+.wheel {
+    position: absolute;
+    height: 128px;
+    width: 128px;
+    top: calc(50% - 64px);
+    left: calc(50% - 64px);
+    transform: translate(-50%, -50%);
+    mask: url('../res/wheel2.svg');
+    -webkit-mask: url('../res/wheel2.svg');
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background:white;
+}
+
 .form {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -120px;
-    margin-left: -220px;
-
+    height: 220px;
+    width: 440px;
+    top: calc(50% - 110px);
+    left: calc(50% - 220px);
 }
 
 .login {
     height: 200px;
     width: 400px;
-
 }

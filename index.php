@@ -8,6 +8,7 @@
 <html>
     <head>
     <meta charset="UTF-8">
+    <script src="lib/anime.min.js"></script>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,6 +17,12 @@
     </head>
     <body>
 
+    <!-- LOADING -->
+    <div class="loading">
+        <span class = "wheel"></span>
+        <script src="js/loading.js"></script>
+    </div>
+
     <!-- NAVBAR -->
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -23,14 +30,14 @@
                 <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
             </a>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <a role="button" onclick="document.querySelector('#navMenu').classList.toggle('is-active');this.classList.toggle('is-active');" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navMenu" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item">
                     Главная
@@ -70,13 +77,13 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-link">
+                        <a class="button is-link is-rounded">
                             <span class="icon is-small">
                                 <i class="fas fa-user"></i>
                             </span>
                         <strong><?php ?>Добро пожаловать, <?= $login ?></strong>
                         </a>
-                        <a href="/logout.php" class="button is-link is-inverted">
+                        <a href="/logout.php" class="button is-link is-inverted is-rounded">
                             <span class="icon is-small">
                                 <i class="fas fa-sign-out-alt"></i>
                             </span>
