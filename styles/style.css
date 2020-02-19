@@ -7,6 +7,22 @@ body{
     background-color: var(--bg-color);
 }
 
+.main-container{
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    width: 100%;
+    background-color: var(--bg-color);
+}
+
+.panel_search{
+    background-color: white;
+}
+
+.card{
+    border-radius: 0.5rem;
+}
+
 .loading {
     position: absolute;
     z-index: 29;
