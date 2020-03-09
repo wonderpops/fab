@@ -51,6 +51,17 @@ body{
     background:white;
 }
 
+.fup {
+    height: 100%;
+    width: 100%;
+    border-color: rgb(175, 175, 175);
+    background-color: rgb(175, 175, 175);
+    color: rgb(175, 175, 175);
+}
+
+.car_image{
+}
+
 .form {
     position: absolute;
     height: 220px;

@@ -103,6 +103,7 @@
 
     </body>
     <script src="js/page_changer.js"></script>
+    <script src="js/functions.js"></script>
     <?php
         switch ($_GET['page']){
             case "cars":
