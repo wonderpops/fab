@@ -53,7 +53,7 @@
                     </a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
+                        <a class="navbar-link" href='?page=parts'>
                             Детали
                         </a>
 
@@ -98,7 +98,6 @@
 
         <!-- main-container -->
         <div id="main_container" class="columns main-container">
-            
         </div>
 
     </body>
@@ -112,6 +111,9 @@
             case "add_car":
                 echo('<script>getPage("add_car");</script>');
                 break;
+            case "parts":
+                    echo('<script>getPage("parts");</script>');
+                    break;
             case "car":
                 $id = $_GET['id'];
                 echo "<script>getPage('car', $id);</script>')";

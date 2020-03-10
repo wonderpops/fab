@@ -45,7 +45,7 @@ echo('<div class="column is-8">
             <div id="results" class="columns is-multiline">');
 
 while ($row = mysqli_fetch_assoc($result)) {
-    echo('<div class="column is-half">');
+    echo('<div class="column is-4">');
     echo('<div class="card ">
         <div class="card-image">');
         echo ('<img src="res/alloy-wheel.png"');

@@ -11,6 +11,7 @@ function insertInTable(){
                 comment:carcom}
     }).done(function( result )  {
         if (result == 'ok') {
+            //todo ok sign
             setTimeout(function(){document.location.href='?page=cars'}, 1000);
         }
     });
