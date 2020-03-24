@@ -16,3 +16,26 @@ function insertInTable(){
         }
     });
 }
+
+function editOnClick(){
+    var fields = document.getElementsByName('field');
+    var button = document.getElementById('editBtn');
+
+    if (button.textContent == "Редактировать"){
+        
+        fields.forEach(function(item){
+            item.removeAttribute('disabled');
+        });
+    
+        button.textContent = "Сохранить";
+    } else if (button.textContent == "Сохранить") {
+        
+        alert('Сохранено!');
+
+        fields.forEach(function(item){
+            item.setAttribute('disabled', '');
+        });
+
+        button.textContent = "Редактировать";
+    }
+}

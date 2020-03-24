@@ -55,5 +55,14 @@ function getPage(name, id){
                 document.getElementById("main_container").innerHTML = result;
             }
         });
+    } else if (name == 'part'){
+        $.ajax({
+            type: "POST",
+            url: "part.php",
+            data:  {id:id}
+        }).done(function( result )  {
+            document.getElementById("main_container").innerHTML = result;
+            //alert('loaded');
+        });
     }
 }

@@ -118,6 +118,10 @@
                 $id = $_GET['id'];
                 echo "<script>getPage('car', $id);</script>')";
                 break;
+            case "part":
+                    $id = $_GET['id'];
+                    echo "<script>getPage('part', $id);</script>')";
+                    break;
         }
     ?>
 </html>

@@ -46,10 +46,10 @@ echo('<div class="column is-8">
             <tr>
             <th>ID</th>
             <th>Наименование</th>
+            <th>Тип</th>
             <th>Машина</th>
             <th>Дата</th>
             <th>Стоимость</th>
-            <th>Характеристики</th>
             </tr>
         </thead>
         <tbody>');
@@ -58,6 +58,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $car_id = $row['car'];
     $sql = "SELECT * FROM `cars` WHERE `id`=$car_id";
     $car = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+    $part_id = $row['type'];
+    $sql = "SELECT * FROM `parts_types` WHERE `id`=$part_id";
+    $type = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 
     echo('<tr>');
 
@@ -70,6 +73,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             echo('">');
                 echo $row['name'];
                     echo('</a>');
+
+    echo('<td>');
+        echo $type['name'];
+            echo('</td>');
     
     echo('<td><a href="http://fab:81/index.php?page=car&id=');
     echo $row['car'];
@@ -84,10 +91,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo('<td>');
         echo $row['cost'];
             echo(' руб.</td>');
-
-    echo('<td>');
-        echo $row['specification'];
-            echo('</td>');
 
     echo('</tr>');
 }
