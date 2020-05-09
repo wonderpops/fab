@@ -64,9 +64,16 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
         </div>
         <footer class="card-footer">
-            <a href="?page=car&id=');
-            echo $row['id'];
-            echo('" class="card-footer-item">Изменить</a>
+            <a onclick="getItem(');
+            echo("'car',");
+                echo $row['id'];
+                    echo(');');
+                        echo("history.pushState({page: 'cars', type: 'car', id: '");
+                            echo $row['id'];
+                                echo ("'}, '', '?page=cars&type=car&id=");
+                                    echo $row['id'];
+                                        echo("');");
+            echo('" class="card-footer-item">Подробнее</a>
         </footer>
     </div>');
     echo('</div>');

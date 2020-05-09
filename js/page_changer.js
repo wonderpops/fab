@@ -24,8 +24,61 @@
 //         document.getElementById("main_container").innerHTML = '';
 //     }
 // }
+window.addEventListener('popstate', function(e) {
+    // var search = location.search.substr(1)
+    // .split('&') // разбиваем на параметры
+    // .reduce(function (res, a) { // разбираем пары ключ-значение
+    //     var t = a.split('=');
 
-function getPage(name, id){
+    //     // нужно декодировать и ключ и значение, значения может не быть
+    //     res[decodeURIComponent(t[0])] = t.length == 1 ? null : decodeURIComponent(t[1]);
+    //     return res;
+    // }, {});
+    if (e.state['id'] == undefined) {
+        if ($('#modal_container').hasClass('is-active')){
+            document.querySelector('#modal_container').classList.toggle('is-active');
+        }
+    } else {
+        if (!$('#modal_container').hasClass('is-active')){
+            document.querySelector('#modal_container').classList.toggle('is-active');
+        }
+    }
+    //console.log(e.state['page']);
+    //console.log(e.state['id']);
+    //console.log(e.state['type']);
+    getPage(e.state['page']);
+    getItem(e.state['id'], e.state['type']);
+});
+
+function getItem(type,id){
+    //console.log(id);
+    //console.log(type);
+    if (id != undefined){
+        if (type == 'car'){
+            $.ajax({
+                type: "POST",
+                url: "car.php",
+                data:  {id:id}
+            }).done(function( result )  {
+                document.getElementById("modal_container").classList.add('is-active');
+                document.getElementById("modal_content").innerHTML = result;
+                //alert('loaded');
+            });
+        } else if (type == 'part'){
+            $.ajax({
+                type: "POST",
+                url: "part.php",
+                data:  {id:id}
+            }).done(function( result )  {
+                document.getElementById("modal_container").classList.add('is-active');
+                document.getElementById("modal_content").innerHTML = result;
+                //alert('loaded');
+            });
+        }
+    }
+}
+
+function getPage(name){
     //alert(name);
     if (name == 'cars') {
         $.ajax({
@@ -54,15 +107,6 @@ function getPage(name, id){
                 result = '<div class="container has-text-centered"><h1 class="title is-2">Ничего не найдено :c</h1></div>'
                 document.getElementById("main_container").innerHTML = result;
             }
-        });
-    } else if (name == 'part'){
-        $.ajax({
-            type: "POST",
-            url: "part.php",
-            data:  {id:id}
-        }).done(function( result )  {
-            document.getElementById("main_container").innerHTML = result;
-            //alert('loaded');
         });
     }
 }

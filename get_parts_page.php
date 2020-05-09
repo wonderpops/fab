@@ -41,7 +41,9 @@ echo('<div class="column is-2">
 </div>');
 
 echo('<div class="column is-8">
-        <table class="table is-fullwidth">
+    <a name="field" class="button is-link is-inverted is-fullwidth">Добавить деталь</a>
+    <table class="table is-fullwidth">
+    <a> </a>
         <thead>
             <tr>
             <th>ID</th>
@@ -68,21 +70,35 @@ while ($row = mysqli_fetch_assoc($result)) {
         echo $row['id'];
             echo('</td>');
 
-    echo('<td><a href="http://fab:81/index.php?page=part&id=');
-        echo $row['id'];
-            echo('">');
-                echo $row['name'];
-                    echo('</a>');
+    echo('<td><a onclick="getItem(');
+        echo("'part',");
+            echo $row['id'];
+                echo(');');
+                    echo("history.pushState({page: 'parts', type: 'part', id: '");
+                        echo $row['id'];
+                            echo ("'}, '', '?page=parts&type=part&id=");
+                                echo $row['id'];
+                                    echo("');");
+                                        echo('">');
+                                            echo $row['name'];
+                                                echo('</a>');
 
     echo('<td>');
         echo $type['name'];
             echo('</td>');
-    
-    echo('<td><a href="http://fab:81/index.php?page=car&id=');
-    echo $row['car'];
-        echo('">');
-            echo $car['name'];
-                echo('</a>');
+
+    echo('<td><a onclick="getItem(');
+        echo("'car',");
+            echo $row['car'];
+                echo(');');
+                    echo("history.pushState({page: 'parts', type: 'car', id: '");
+                        echo $row['car'];
+                            echo("'}, '', '?page=parts&type=car&id=");
+                                echo $row['car'];
+                                    echo("');");
+                                        echo('">');
+                                            echo $car['name'];
+                                                echo('</a>');
 
     echo('<td>');
         echo $row['date'];
