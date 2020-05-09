@@ -3,8 +3,8 @@
 function checkAuth(string $login, string $password): bool 
 {
     $servername = "localhost"; 
-    $username = "root"; 
-    $passwordd = ""; 
+    $username = "fab"; 
+    $passwordd = "10502248Ss"; 
     $db = "fab"; 
     $mysqli =  mysqli_connect($servername, $username, $passwordd, $db);
     $sql = "SELECT * FROM   users";
