@@ -16,6 +16,7 @@ if (!empty($_POST)) {
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=500, initial-scale=0.7 user-scalable=No">
     <script src="lib/anime.min.js"></script>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.4.1.min.js">
@@ -54,20 +55,14 @@ if (!empty($_POST)) {
                                 </span>
                         </p>
                     </div>
-                    <span style="color: red;">
-                        <?= $error ?>
-                    </span>
+                    <span style="color: red;"><?= $error ?></span>
                     <br>
-                    <div class="columns">
-                        <div class="column"></div>
-                        <div class="column">
-                            <button class="button is-link is-light is-medium" value="Войти">Войти</button>
-                        </div>
-                        <div class="column"></div>
-                </div> 
+                    <div class="field has-addons has-addons-centered">
+                        <button class="button is-link is-light is-medium" value="Войти">Войти</button>
+                    </div> 
+                </div>
             </div>
         </div>
-    </div>
 </form>
 </body>
 <script src="js/animations.js"></script>
