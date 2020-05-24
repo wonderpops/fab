@@ -20,7 +20,7 @@
                                 <time datetime="2016-1-1">{{$car->created_at}}</time>
                                 <div class="field is-grouped is-grouped-right">
                                     <p class="control">
-                                    <a class="button is-primary is-rounded" href="cars/{{$car->id}}">Подробнее</a>
+                                    <a class="button is-primary is-rounded" href="/cars/{{$car->id}}">Подробнее</a>
                                     </p>
                                   </div>
                             </div>

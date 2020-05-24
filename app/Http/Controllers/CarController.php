@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Car;
+use App\Part;
 
 class CarController extends Controller
 {
@@ -14,6 +15,7 @@ class CarController extends Controller
 
     public function show($id){
         $car = Car::find($id);
-        return view('cars.show', compact('car'));
+        $parts = Part::where('car_id', $id)->get();
+        return view('cars.show', compact('car', 'parts'));
     }
 }

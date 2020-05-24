@@ -14,16 +14,16 @@
 
     <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item unselectable" href="home">
+            <a class="navbar-item unselectable" href="/home">
                 Главная
             </a>
 
-            <a class="navbar-item unselectable" href="cars">
+            <a class="navbar-item unselectable" href="/cars">
                 Машины
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link unselectable" href="parts">
+                <a class="navbar-link unselectable" href="/parts">
                     Детали
                 </a>
 

@@ -20,5 +20,6 @@ Auth::routes();
 Route::redirect('/', '/home');
 Route::redirect('/register', '/login');
 Route::get('/cars', 'CarController@index')->middleware('auth');
+Route::get('/cars/{car}', 'CarController@show')->middleware('auth');
 Route::get('/parts', 'PartController@index')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
