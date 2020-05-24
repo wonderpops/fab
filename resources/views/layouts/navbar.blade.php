@@ -48,13 +48,13 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-link is-rounded unselectable">
+                    <a class="button is-primary is-rounded unselectable">
                         <span class="icon is-small">
                             <i class="fas fa-user"></i>
                         </span>
                     <strong>{{Auth::user()->name}}</strong>
                     </a>
-                    <a href="{{ route('logout') }} " class="button is-link is-inverted is-rounded" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <a href="{{ route('logout') }} " class="button is-primary is-inverted is-rounded" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>

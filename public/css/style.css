@@ -9,12 +9,14 @@
 
 .login-container{
     position: absolute;
-    height: 400px;
-    width: 500px;
+    width: 400px;
     top: calc(50% - 200px);
-    left: calc(50% - 250px);
-    background: linear-gradient(to top, #fcab8b, #ffeb93);
-    padding-top: 100px;
+    left: calc(50% - 200px);
+    background: linear-gradient(to top, #42c2ad, #7ceeab);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 20px;
     border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
@@ -22,6 +24,10 @@
 
 .login-lables{
     color: white;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5em;
 }
 
 ::-webkit-scrollbar {
