@@ -15,7 +15,7 @@
 
         <!-- main-container -->
         <div id="main_container" class="columns main-container">
-            <div class="column is-2"></div>
+            <div class="column is-2">@yield('search_block')</div>
             <div class="column is-8">@yield('main_content')</div>
             <div class="column is-2"></div>
         </div>

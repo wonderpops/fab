@@ -1,5 +1,5 @@
 <!-- NAVBAR -->
-<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
             <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
@@ -18,9 +18,27 @@
                 Главная
             </a>
 
-            <a class="navbar-item unselectable" href="/cars">
-                Машины
-            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link unselectable" href="/cars">
+                    Машины
+                </a>
+
+                <div class="navbar-dropdown unselectable">
+                    <a class="navbar-item unselectable" href="/cars/add">
+                        Добавить машину
+                    </a>
+                    <a class="navbar-item unselectable">
+                        Проданные
+                    </a>
+                    <a class="navbar-item unselectable">
+                        Все
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item unselectable">
+                        Report an issue
+                    </a>
+                </div>
+            </div>
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link unselectable" href="/parts">
@@ -54,7 +72,7 @@
                         </span>
                     <strong>{{Auth::user()->name}}</strong>
                     </a>
-                    <a href="{{ route('logout') }} " class="button is-primary is-inverted is-rounded" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <a href="{{ route('logout') }} " class="button is-primary is-outlined is-rounded" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>

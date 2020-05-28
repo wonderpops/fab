@@ -1,5 +1,14 @@
+body{
+    background-color: rgb(241, 241, 241);
+}
 .cars-container{
     margin: 20px 10px 10px 10px;
+}
+
+.search_block{
+    margin: 20px 10px 10px 10px;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .car-card{
