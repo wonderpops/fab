@@ -5,7 +5,7 @@
         <div class="columns">
             <div class="column is-4">
                 <figure class="image is-4by3" style="margin-bottom: calc(1em - 1px);">
-                    <img src="/images/car_id_{{$car->id}}_4by3.jpg" style="border-radius: 6px;" alt="Placeholder image">
+                    <img src="{{$car->image}}" style="border-radius: 4px;" alt="Placeholder image">
                 </figure>
                 <div class="field">
                     <label class="label is-medium">Название:</label>

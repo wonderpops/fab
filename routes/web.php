@@ -19,7 +19,16 @@
 Auth::routes();
 Route::redirect('/', '/home');
 Route::redirect('/register', '/login');
-Route::get('/cars', 'CarController@index')->middleware('auth');
-Route::get('/cars/{car}', 'CarController@show')->middleware('auth');
-Route::get('/parts', 'PartController@index')->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/cars', 'CarController@index');
+    Route::get('/cars/add', 'CarController@add');
+    Route::get('/cars/{car}', 'CarController@show');
+    Route::get('/parts', 'PartController@index');
+});
+
+Route::post('cars/add/image/upload', 'ImageController@upload')->name('image.upload');
+Route::post('cars/add', 'CarController@add_new_car')->name('cars.add');
+
+
 Route::get('/home', 'HomeController@index')->name('home');

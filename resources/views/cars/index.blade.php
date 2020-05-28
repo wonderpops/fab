@@ -9,7 +9,9 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img src="/images/car_id_{{$car->id}}_4by3.jpg" alt="Placeholder image">
+                                <a href="/cars/{{ $car->id }}">
+                                    <img src="{{$car->image}}">
+                                </a>
                             </figure>
                         </div>
                         <div class="card-content">

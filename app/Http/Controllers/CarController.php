@@ -18,4 +18,23 @@ class CarController extends Controller
         $parts = Part::where('car_id', $id)->get();
         return view('cars.show', compact('car', 'parts'));
     }
+
+    public function add(){
+        return view('cars.add');
+    }
+
+    public function add_new_car(Request $request){
+        $validator = $request->validate([
+            'name' => 'required|max:255',
+            'vin' => 'required|max:255'
+        ]);
+
+        $car = new Car;
+        $car->name = $request -> name;
+        $car->vin = $request -> vin;
+        $car->status = 'Разбирается';
+        $car->image = $request -> image;
+        $car->save();
+        return redirect('/cars');
+    }
 }
