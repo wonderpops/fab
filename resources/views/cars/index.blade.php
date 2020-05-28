@@ -2,6 +2,19 @@
 
 @section('main_content')
     <div class="cars-container">
+        <div class="box">
+                <p class="control is-expanded">
+                  <input class="input is-primary is-rounded" type="text" placeholder="Поиск машины">
+                </p>
+                <br>
+              <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                  <a class="button is-primary is-rounded" href="/cars/add">
+                    Добавить машину
+                  </a>
+                </p>
+              </div>
+        </div>
         <div class="columns is-multiline">
             @foreach ($cars as $car)
             <div class="column is-4">
