@@ -9,7 +9,7 @@ use App\Part;
 class CarController extends Controller
 {
     public function index(){
-        $cars = Car::all();
+        $cars = Car::newest();
         return view('cars.index', compact('cars'));
     }
 
@@ -36,5 +36,19 @@ class CarController extends Controller
         $car->image = $request -> image;
         $car->save();
         return redirect('/cars');
+    }
+
+    public function save_changes(Request $request){
+        $validator = $request->validate([
+            'name' => 'required|max:255',
+            'vin' => 'required|max:255'
+        ]);
+
+        $car = Car::find($request -> car_id);
+        $car->name = $request -> name;
+        $car->vin = $request -> vin;
+        $car->status = 'Разбирается';
+        $car->save();
+        return redirect('/cars/'.$request -> car_id);
     }
 }

@@ -16,9 +16,9 @@
 //     return 
 // });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::redirect('/', '/home');
-Route::redirect('/register', '/login');
+// Route::redirect('/register', '/login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/cars', 'CarController@index');
@@ -27,8 +27,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/parts', 'PartController@index');
 });
 
-Route::post('cars/add/image/upload', 'ImageController@upload')->name('image.upload');
-Route::post('cars/add', 'CarController@add_new_car')->name('cars.add');
+Route::get('/search_by_barcode', function () {
+    return view('search.search_by_barcode');
+});
 
+Route::post('cars/add/image_uploaded', 'ImageController@upload')->name('image.upload');
+Route::post('cars/add', 'CarController@add_new_car')->name('cars.add');
+Route::post('cars/save_changes', 'CarController@save_changes')->name('cars.save_changes');
+
+Route::delete('/cars/{car}', function (\App\Car $car) {
+    $car->delete();
+    return redirect('/cars');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -3,13 +3,14 @@
 @section('main_content')
     <div class="box cars-container">
         <div class="columns">
-            <div class="column is-4">
-                <figure class="image is-4by3" style="margin-bottom: calc(1em - 1px);">
-                    @isset($path)
-                    <img id="car_img" src="{{ asset('/storage/'. $path)}}" style="border-radius: 6px;" alt="Placeholder image">
-                    @endisset
+            <div class="column">
+                <figure class="image is-4by3" style="margin-bottom: calc(1em - 1px); border-radius: 6px; border: 2px solid #dbdbdb;">
+                    @if (isset($path))
+                        <img id="car_img" src="{{ asset('/storage/'. $path)}}" style=" " alt="Placeholder image">
+                    @else
+                        <img id="car_img" src="{{ asset('/storage/uploads/9lMVK3LPc2w8xgg4LyGynuqRftpiLA2AqOJlhKga.png')}}" style="border-radius: 6px;" alt="Placeholder image">
+                    @endif
                 </figure>
-
                 <form action="{{ route('image.upload') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
@@ -32,6 +33,9 @@
                         </label>
                     </div>
                 </form>
+            </div>
+            
+            <div class="column is-4">
 
                 <form action="{{ route('cars.add') }}" method="post">
                     {{ csrf_field() }}
@@ -50,16 +54,12 @@
                     </div>
                     
                     @isset($path)
-                    <input id="image_name" name="image" class="input is-primary is-medium" type="text" placeholder="Medium sized input" value="{{ asset('/storage/'. $path)}}">
+                    <input id="image_name" name="image" class="input is-primary is-medium" type="hidden" placeholder="Medium sized input" value="{{ asset('/storage/'. $path)}}">
                     @endisset
                     <div class="field is-grouped is-grouped-centered">
-                        <button type="submit" class="button is-primary is-inverted">
-                            Login
-                        </button>
+                        <button type="submit" class="button is-primary is-inverted">Добавить</button>
                     </div>
                 </form>
-            </div>
-            <div class="column">
 
             </div>
         </div>

@@ -24,18 +24,18 @@
                 </a>
 
                 <div class="navbar-dropdown unselectable">
-                    <a class="navbar-item unselectable" href="/cars/add">
-                        Добавить машину
-                    </a>
-                    <a class="navbar-item unselectable">
-                        Проданные
-                    </a>
-                    <a class="navbar-item unselectable">
+                    <a class="navbar-item unselectable" href="/cars">
                         Все
                     </a>
-                    <hr class="navbar-divider">
                     <a class="navbar-item unselectable">
-                        Report an issue
+                        Разбираются
+                    </a>
+                    <a class="navbar-item unselectable">
+                        Разобранные
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item unselectable" href="/cars/add">
+                        Добавить машину
                     </a>
                 </div>
             </div>
@@ -46,18 +46,30 @@
                 </a>
 
                 <div class="navbar-dropdown unselectable">
+                    <a class="navbar-item unselectable" href="/parts">
+                        Все
+                    </a>
                     <a class="navbar-item unselectable">
                         На складе
                     </a>
                     <a class="navbar-item unselectable">
                         Проданные
                     </a>
-                    <a class="navbar-item unselectable">
-                        Все
-                    </a>
                     <hr class="navbar-divider">
                     <a class="navbar-item unselectable">
-                        Report an issue
+                        Добавить деталь
+                    </a>
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link unselectable">
+                    Поиск
+                </a>
+
+                <div class="navbar-dropdown unselectable">
+                    <a class="navbar-item unselectable" href="/search_by_barcode">
+                        По штрихкоду
                     </a>
                 </div>
             </div>

@@ -8,10 +8,8 @@
         </p>
         <p class="panel-tabs">
         <a class="is-active">All</a>
-        <a>Public</a>
-        <a>Private</a>
-        <a>Sources</a>
-        <a>Forks</a>
+        <a class="hide_text">Разбираются</a>
+        <a class="hide_text">Разобраны</a>
         </p>
         <div class="panel-block">
         <p class="control has-icons-left">
@@ -70,16 +68,22 @@
                             </figure>
                         </div>
                         <div class="card-content">
-                            <p class="title is-4">{{$car->name}}</p>
-                            <p class="subtitle is-6">ВИН: {{$car->vin}}</p>
+                            <p class="title is-4 hide_text">{{$car->name}}</p>
+                            <p class="subtitle is-6 hide_text">ВИН: {{$car->vin}}</p>
+                            <p>  
+                                @if ($car->status == 'Разбирается')
+                                    <span class="tag is-warning is-light">{{$car->status}}</span>
+                                @else
+                                    <span class="tag is-acces is-light">{{$car->status}}</span>
+                                @endif          
+                            </p>
                             <div class="content">
-                                
-                                <time datetime="2016-1-1">{{$car->created_at}}</time>
                                 <div class="field is-grouped is-grouped-right">
                                     <p class="control">
-                                    <a class="button is-primary is-rounded" href="/cars/{{$car->id}}">Подробнее</a>
+                                        <a class="button is-primary is-rounded" href="/cars/{{$car->id}}">Подробнее</a>
                                     </p>
-                                  </div>
+                                </div>
+                                <time datetime="2016-1-1" style="font-size: 12px; color: #bbb;">{{$car->created_at}}</time>
                             </div>
                         </div>
                     </div>
