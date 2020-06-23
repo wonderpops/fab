@@ -1,0 +1,13 @@
+* {visibility: hidden;}
+
+.barcode_holder {
+    position: absolute;
+    visibility: visible;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+.barcode * {display: block; visibility: visible;}
