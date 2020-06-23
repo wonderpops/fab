@@ -5,14 +5,18 @@
         <div class="columns">
             <div class="column">
                 <figure class="image is-4by3" style="margin-bottom: calc(1em - 1px); border-radius: 6px; border: 2px solid #dbdbdb;">
-                    @if (isset($path))
-                        <img id="car_img" src="{{ asset('/storage/'. $path)}}" style=" " alt="Placeholder image">
+                    @if (Session::has('path'))
+                        <div id="path" style="display: none">{{ $path = Session::get('path') }}</div>
+                        <script>window.onload = function() {crop_image(document.getElementById('path').innerText);}</script>
+                        <img id="img_place" src="" style=" " alt="Placeholder image">
                     @else
                         <img id="car_img" src="{{ asset('/storage/uploads/9lMVK3LPc2w8xgg4LyGynuqRftpiLA2AqOJlhKga.png')}}" style="border-radius: 6px;" alt="Placeholder image">
                     @endif
                 </figure>
                 <form action="{{ route('image.upload') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
+
+                    <input id="last_route" name="last_route" type="hidden" placeholder="Medium sized input" value="cars.add">
 
                     <div class="file has-name">
                         <label class="file-label">
@@ -54,7 +58,7 @@
                     </div>
                     
                     @isset($path)
-                    <input id="image_name" name="image" class="input is-primary is-medium" type="hidden" placeholder="Medium sized input" value="{{ asset('/storage/'. $path)}}">
+                    <input id="image_name" name="image" class="input is-primary is-medium" type="hidden" placeholder="Medium sized input" value="{{ '/storage/'.$path }}">
                     @endisset
                     <div class="field is-grouped is-grouped-centered">
                         <button type="submit" class="button is-primary is-inverted">Добавить</button>

@@ -25,15 +25,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/cars/add', 'CarController@add');
     Route::get('/cars/{car}', 'CarController@show');
     Route::get('/parts', 'PartController@index');
+    Route::get('/parts/add', 'PartController@add');
+    Route::get('/parts/{part}', 'PartController@show');
 });
 
 Route::get('/search_by_barcode', function () {
     return view('search.search_by_barcode');
 });
 
-Route::post('cars/add/image_uploaded', 'ImageController@upload')->name('image.upload');
-Route::post('cars/add', 'CarController@add_new_car')->name('cars.add');
+Route::post('/image_uploaded', 'ImageController@upload')->name('image.upload');
+
+Route::post('/cars/add', 'CarController@add_new_car')->name('cars.add');
 Route::post('cars/save_changes', 'CarController@save_changes')->name('cars.save_changes');
+
+Route::post('/parts/add', 'PartController@add_new_part')->name('parts.add');
+Route::post('parts/save_changes', 'PartController@save_changes')->name('parts.save_changes');
 
 Route::delete('/cars/{car}', function (\App\Car $car) {
     $car->delete();

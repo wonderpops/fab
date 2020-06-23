@@ -1,19 +1,20 @@
 @extends('main_layout')
 
 @section('main_content')
-<form action="{{ route('cars.save_changes') }}" method="post">
+<form action="{{ route('parts.save_changes') }}" method="post">
     {{ csrf_field() }}
+    <input name="part_id" type="hidden" placeholder="Medium sized input" value="{{$part->id}}">
 
     <div class="box cars-container">
         <div class="columns">
             <div class="column is-4">
                     <figure class="image is-4by3" style="margin-bottom: calc(1em - 1px);">
-                        <img src="{{$car->image}}" style="border-radius: 4px;" alt="Placeholder image">
+                        <img src="{{$part->image}}" style="border-radius: 4px;" alt="Placeholder image">
                     </figure>
 
                     <div class="columns is-mobile">
                         <div class="column">
-                            <a class="button is-fullwidth is-primary is-large is-light" onclick='$("#bcTarget").barcode("CAR{{ sprintf("%06d", $car->id) }}", "code39",{barWidth:2, barHeight:30});window.print();   '>
+                            <a class="button is-fullwidth is-primary is-large is-light" onclick='$("#bcTarget").barcode("PART{{ sprintf("%06d", $part->id) }}", "code39",{barWidth:2, barHeight:30});window.print();   '>
                                 <span class="icon">
                                     <i class="fas fa-qrcode"></i>
                                 </span>
@@ -41,14 +42,46 @@
                         <label class="label is-medium">Название:</label>
                         
                         <div class="control">
-                            <input name="name" class="input is-primary is-medium" type="text" placeholder="Medium sized input" value="{{$car->name}}" disabled>
+                            <input name="name" class="input is-primary is-medium" type="text" placeholder="Medium sized input" value="{{$part->name}}" disabled>
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label is-medium">ВИН:</label>
+                        <label class="label is-medium">Тип:</label>
+                        <div class="control is-expanded">
+                            <div class="select is-primary is-fullwidth is-medium">
+                                <select name="type" class="input" type="text" disabled>
+                                    <option>{{$part->type}}</option>
+                                    @foreach ($items = DB::table('types')->get() as $item)
+                                        @if ($item->name != $part->type)
+                                            <option>{{$item->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label is-medium">Статус:</label>
+                        <div class="control is-expanded">
+                            <div class="select is-primary is-fullwidth is-medium">
+                                <select name="status" class="input" type="text" disabled>
+                                    <option>{{$part->status}}</option>
+                                    @if ($part->status == 'На складе')
+                                        <option>Продана</option>
+                                    @else
+                                        <option>На складе</option>
+                                    @endif
+                                </select>
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label is-medium">Цена:</label>
                         <div class="control">
-                            <input name="vin" class="input is-primary is-medium" type="text" placeholder="Medium sized input" value="{{$car->vin}}" disabled>
+                            <input name="cost" class="input is-primary is-medium" type="text" placeholder="Medium sized input" value="{{$part->cost}}" disabled>
                         </div>
                     </div>
 
@@ -68,41 +101,21 @@
                         <div class="field" style="padding: 5px;">
                             <label class="label" style="font-size: 12px; color: #bbb;">Дата создания:</label>
                             <div class="control">
-                                <h5 class="subtitle is-5" style="font-size: 12px; color: #bbb;">{{$car->created_at}}</h5>
+                                <h5 class="subtitle is-5" style="font-size: 12px; color: #bbb;">{{$part->created_at}}</h5>
                             </div>
                         </div>
                         <div class="field" style="padding: 5px;">
                             <label class="label" style="font-size: 12px; color: #bbb;">Дата редактирования:</label>
                             <div class="control">
-                                <h5 class="subtitle is-5" style="font-size: 12px; color: #bbb;">{{$car->updated_at}}</h5>
+                                <h5 class="subtitle is-5" style="font-size: 12px; color: #bbb;">{{$part->updated_at}}</h5>
                             </div>
                         </div>
                     </div>
 
-                    <input name="car_id" type="hidden" placeholder="Medium sized input" value="{{$car->id}}">
+                    <input name="car_id" type="hidden" placeholder="Medium sized input" value="{{$part->id}}">
             </div>
 
             <div class="column">
-                <table class="table is-striped is-fullwidth">
-                    <thead>
-                        <tr>
-                        <th>ID</th>
-                        <th>Имя</th>
-                        <th>Дата</th>
-                        <th>Цена</th>
-                        </tr>
-                    </thead>
-                    @foreach ($parts as $part)
-                    <tr>
-                        <td>{{$part->id}}</td>
-                        <td><a href="/parts/{{$part->id}}">{{$part->name}}</a></td>
-                        <td>{{$part->type}}</td>
-                        <td>{{$part->cost}}р.</td>
-                    </tr>
-                    @endforeach
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

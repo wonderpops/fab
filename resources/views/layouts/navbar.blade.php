@@ -56,7 +56,7 @@
                         Проданные
                     </a>
                     <hr class="navbar-divider">
-                    <a class="navbar-item unselectable">
+                    <a class="navbar-item unselectable" href="/parts/add">
                         Добавить деталь
                     </a>
                 </div>
