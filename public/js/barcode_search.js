@@ -99,15 +99,10 @@ function get_cookie ( cookie_name )
 window.onload = function(){
     document.cookie = "loaded = true";
     console.log(get_cookie('loaded'));
-    App._dev_id = $(videoSelect.childNodes[videoSelect.childElementCount-1]).val();
-    $(videoSelect).val($(videoSelect.childNodes[videoSelect.childElementCount-1]).val());
-    App.init();
-    App.activateScanner();
-}
-
-getDevices().then(gotDevices);
-    function getDevices() {
-  return navigator.mediaDevices.enumerateDevices();
+    getDevices().then(gotDevices);
+        function getDevices() {
+        return navigator.mediaDevices.enumerateDevices();
+    }
 }
 
 function gotDevices(deviceInfos) {
@@ -125,6 +120,11 @@ function gotDevices(deviceInfos) {
       videoSelect.appendChild(option);
     }
   }
+
+  App._dev_id = $(videoSelect.childNodes[videoSelect.childElementCount-1]).val();
+  $(videoSelect).val($(videoSelect.childNodes[videoSelect.childElementCount-1]).val());
+  App.init();
+  App.activateScanner();
 }
 
 console.log(videoSelect.childElementCount);
@@ -145,14 +145,17 @@ $(sad).change = loadPage();
 
 function loadPage()
 {
-    // TODO Сделать для запчастей
     x = document.querySelector('input.isbn').value;
-    x = x.split('CAR');
-    if (x.length > 1) {
-        console.log(parseInt(x[1]));
-        document.location.href = document.location.href.replace('search_by_barcode', 'cars/'+parseInt(x[1]).toString());
+
+    c = x.split('CAR');
+    if (c.length > 1) {
+        document.location.href = document.location.href.replace('search_by_barcode', 'cars/'+parseInt(c[1]).toString());
     }
 
+    p = x.split('PART');
+    if (p.length > 1) {
+        document.location.href = document.location.href.replace('search_by_barcode', 'parts/'+parseInt(p[1]).toString());
+    }
 }
 
 //console.log(App);
