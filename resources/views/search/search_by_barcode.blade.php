@@ -1,5 +1,9 @@
 @extends('main_layout')
 
+@section('title')
+<title>Поиск по штрихкоду</title>
+@endsection
+
 @section('main_content')
 <div class="box cars-container">
         <div id="container">

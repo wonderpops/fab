@@ -3,10 +3,11 @@
 @section('content')
 <div class="login-container">
     <div class="panel-body">
+        {{-- <a href="/register">register</a> --}}
         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
-            <h1 class="title" style="margin-left: 150px; color: white;">Вход</h1>
+            <h1 class="title" style="margin-left: 125px; color: white;">Вход</h1>
 
             <div class="field">
                 <label class="login-lables">E-Mail</label>
@@ -42,7 +43,7 @@
                 <div class="col-md-6 col-md-offset-4">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}><label style="color: white"> Remember Me</abel>
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}><label style="color: white">Запомнить меня</abel>
                         </label>
                     </div>
                 </div>
@@ -50,7 +51,7 @@
 
             <div class="field is-grouped is-grouped-centered">
                     <button type="submit" class="button is-primary is-inverted">
-                        Login
+                        Войти
                     </button>
             </div>
         </form>

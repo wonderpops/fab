@@ -11,10 +11,10 @@ class Car extends Model
     }
 
     public static function disassembling() {
-        return static::where('status', 'Разбирается')->get();
+        return static::where('status', 'Разбирается')->orderBy('created_at', 'desc')->get();
     }
 
     public static function disassembled() {
-        return static::where('status', 'Разобрана')->get();
+        return static::where('status', 'Разобрана')->orderBy('created_at', 'desc')->get();
     }
 }

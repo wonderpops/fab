@@ -2,7 +2,7 @@ body{
     background-color: rgb(241, 241, 241);
 }
 .cars-container{
-    margin: 20px 10px 10px 10px;
+    margin: 70px 10px 10px 10px;
 }
 
 .input[disabled]{
@@ -17,15 +17,15 @@ body{
 }
 
 .car-card{
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .login-container{
     position: absolute;
-    width: 400px;
+    width: 350px;
     top: calc(50% - 200px);
-    left: calc(50% - 200px);
+    left: calc(50% - 175px);
     background: linear-gradient(to top, #42c2ad, #7ceeab);
     padding-top: 20px;
     padding-bottom: 20px;
@@ -74,4 +74,9 @@ body{
 .barcode_holder{
     visibility: hidden;
     height: 0px;
+}
+
+.tabs.is-toggle li.is-active a {
+    background-color: #00d1b2 !important;
+    border-color: #00d1b2 !important;
 }

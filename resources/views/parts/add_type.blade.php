@@ -1,44 +1,11 @@
 @extends('main_layout')
 
 @section('title')
-<title>Добавить деталь</title>
+<title>Добавить тип детали</title>
 @endsection
 
 @section('main_content')
     <div class="box cars-container">
-        <div style="width: 100%;height: 400px;overflow: hidden;margin-bottom: 10px; border-radius: 10px;">
-            @if (Session::has('path'))
-                <div id="path" style="display: none">{{$path = Session::get('path')}}</div>
-                <script>window.onload = function() {crop_image(document.getElementById('path').innerText);}</script>
-                <img id="img_place" src="" style="object-fit: cover;height: 100%;width: 100%;" alt="Part image">
-            @else
-                <img id="car_img" src="{{ asset('/storage/uploads/9lMVK3LPc2w8xgg4LyGynuqRftpiLA2AqOJlhKga.png')}}" style="object-fit: cover;height: 100%;width: 100%;" alt="Part image">
-            @endif
-        </div>
-        <form action="{{ route('image.upload') }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
-
-            <input id="view_name" name="view_name" type="hidden" placeholder="Medium sized input" value="parts.add">
-
-            <div class="file has-name is-fullwidth">
-                <label class="file-label">
-                  <input class="file-input" type="file" name="image" onchange="form.submit();">
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">Выберете файл</span>
-                  </span>
-                  <span class="file-name">
-                    @if(isset($path))
-                        {{ $path }}
-                    @else
-                        Добавьте фото
-                    @endif
-                  </span>
-                </label>
-            </div>
-        </form>
         <form id='main_form' action="{{ route('parts.add') }}" method="post">
             {{ csrf_field() }}
         <div class="columns">

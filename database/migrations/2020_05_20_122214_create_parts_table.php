@@ -16,9 +16,11 @@ class CreatePartsTable extends Migration
         Schema::create('parts', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            $table->integer('type_id');
+            $table->text('type');
             $table->integer('car_id');
-            $table->float('cost');
+            $table->float('prise');
+            $table->text('condition');
+            $table->text('originality');
             $table->text('status');
             $table->text('image');
             $table->timestamps();

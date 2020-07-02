@@ -154,7 +154,7 @@ function loadPage()
 
     p = x.split('PART');
     if (p.length > 1) {
-        document.location.href = document.location.href.replace('search_by_barcode', 'parts/'+parseInt(p[1]).toString());
+        //document.location.href = document.location.href.replace('search_by_barcode', 'parts/' + parseInt(p[1]).toString() + '/main');
     }
 }
 
